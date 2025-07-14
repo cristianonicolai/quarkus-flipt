@@ -1,0 +1,19 @@
+version: "1.2"
+flags:
+  - key: feature-flag
+    name: Test Flag
+    type: BOOLEAN_FLAG_TYPE
+    enabled: false
+    rollouts:
+      - segment:
+          key: enabled-entities
+          value: true
+segments:
+  - key: enabled-entities
+    name: Allowed Tenants
+    match_type: ANY_MATCH_TYPE
+    constraints:
+      - property: entityId
+        operator: isoneof
+        value: '["e311a066-5982-4b5f-8fe0-d109951941d1"]'
+        type: ENTITY_ID_COMPARISON_TYPE
