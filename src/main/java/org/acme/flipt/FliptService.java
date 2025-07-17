@@ -34,6 +34,7 @@ public class FliptService {
             TlsConfig tlsConfig = null;
             if (fliptUrl.startsWith("https://")) {
                 if (certFile.isPresent()) {
+                    LOGGER.info("Using HTTPS certificate to connect with Flipt: {}",  certFile.get());
                     tlsConfig = TlsConfig.builder().caCertFile(certFile.get()).insecureSkipHostnameVerify(true).build();
                 } else {
                     LOGGER.warn("Using HTTPS connection to Flipt but no certificate file provided");
@@ -61,7 +62,6 @@ public class FliptService {
             BooleanEvaluationResponse response = fliptClient.evaluateBoolean(flagKey, entityId, Map.of());
             return response.isEnabled();
         } catch (FliptException.EvaluationException e) {
-            e.printStackTrace();
             LOGGER.error("Failed to evaluate feature flag", e);
             throw new RuntimeException(e);
         }

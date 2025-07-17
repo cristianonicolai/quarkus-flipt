@@ -81,6 +81,10 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${surefire-plugin.version}</version>
                 <configuration>
+                    <environmentVariables>
+                        <FLIPT_ENGINE_LOG>debug</FLIPT_ENGINE_LOG>
+                        <RUST_LOG>debug</RUST_LOG>
+                    </environmentVariables>
                     <systemPropertyVariables>
                         <java.util.logging.manager>org.jboss.logmanager.LogManager</java.util.logging.manager>
                     </systemPropertyVariables>
