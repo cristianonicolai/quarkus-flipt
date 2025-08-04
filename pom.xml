@@ -9,7 +9,7 @@
     <properties>
         <quarkus.platform.artifact-id>quarkus-bom</quarkus.platform.artifact-id>
         <quarkus.platform.group-id>io.quarkus.platform</quarkus.platform.group-id>
-        <quarkus.platform.version>3.24.2</quarkus.platform.version>
+        <quarkus.platform.version>3.24.5</quarkus.platform.version>
         <surefire-plugin.version>3.5.3</surefire-plugin.version>
         <version.io.flipt>1.1.1-rc.7</version.io.flipt>
         <maven.compiler.source>21</maven.compiler.source>
